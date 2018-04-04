@@ -1,7 +1,5 @@
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
 using BeginningAzureServerlessArchitecture.Models;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
@@ -10,17 +8,20 @@ using Newtonsoft.Json;
 
 namespace BeginningAzureServerlessArchitecture
 {
-    public static class LessonOne
+    public static class PostTransactions
     {
-        [FunctionName("LessonOne")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "Transactions")]HttpRequestMessage req, TraceWriter log)
+        [FunctionName("PostTransactions")]
+        public static HttpResponseMessage Run([HttpTrigger(
+            AuthorizationLevel.Anonymous, 
+            "post", 
+            Route = "transactions")] HttpRequestMessage req, TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
 
-            var message = await req.Content.ReadAsStringAsync();
+            var message = req.Content.ReadAsStringAsync().Result;
             var transaction = JsonConvert.DeserializeObject<Transaction>(message);
 
-            return req.CreateResponse(HttpStatusCode.OK, $"You made a transaction of £{transaction.Amount}!");
+            return req.CreateResponse(HttpStatusCode.OK, $"You made a transaction of £{transaction.Amount}");
         }
     }
 }
