@@ -14,7 +14,7 @@ using Microsoft.Extensions.Logging;
 
 namespace BeginningAzureServerlessArchitecture
 {
-    public static class LessonOne
+    public static class PostTransactionsExCStep3
     {
         private static string key = TelemetryConfiguration.Active.InstrumentationKey =
             Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);

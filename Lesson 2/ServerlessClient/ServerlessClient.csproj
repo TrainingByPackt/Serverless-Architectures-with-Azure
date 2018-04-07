@@ -143,12 +143,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <None Include="Controllers\TransactionControllerExEStep6.cs" />
+    <None Include="Controllers\TransactionControllerExEStep5.cs" />
+    <None Include="Controllers\TransactionControllerExDStep6.cs" />
     <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Views\Transaction\IndexExDStep7.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -220,7 +224,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61360</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

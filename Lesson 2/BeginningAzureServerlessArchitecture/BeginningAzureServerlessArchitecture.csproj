@@ -10,6 +10,10 @@
     <Compile Remove="GetTransactionsExBStep6.cs" />
     <Compile Remove="GetTransactionsExBStep7.cs" />
     <Compile Remove="PostTransactionsExAStart.cs" />
+    <Compile Remove="PostTransactionsExAStep2.cs" />
+    <Compile Remove="PostTransactionsExCStep3.cs" />
+    <Compile Remove="PostTransactionsExCStep5.cs" />
+    <Compile Remove="PostTransactionsExCStep6.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GetTransactions.cs" />
@@ -19,6 +23,10 @@
     <None Include="GetTransactionsExBStep7.cs" />
     <None Include="GetTransactionsExBStep6.cs" />
     <None Include="PostTransactionsExAStart.cs" />
+    <None Include="PostTransactionsExAStep2.cs" />
+    <None Include="PostTransactionsExCStep3.cs" />
+    <None Include="PostTransactionsExCStep5.cs" />
+    <None Include="PostTransactionsExCStep6.cs" />
   </ItemGroup>
   <ItemGroup>    
     <PackageReference Include="Microsoft.ApplicationInsights" Version="2.5.0" />    
