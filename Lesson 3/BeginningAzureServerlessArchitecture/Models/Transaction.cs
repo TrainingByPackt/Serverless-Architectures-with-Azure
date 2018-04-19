@@ -10,5 +10,9 @@ namespace BeginningAzureServerlessArchitecture.Models
     {
         public DateTime ExecutionTime { get; set; }
         public Decimal Amount { get; set; }
+
+        public string UserEmail { get; set; }
+
+        public string UserPassword { get; set; }
     }
 }

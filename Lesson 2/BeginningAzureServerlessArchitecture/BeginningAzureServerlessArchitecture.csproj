@@ -9,6 +9,7 @@
     <Compile Remove="GetTransactionsExBStep5.cs" />
     <Compile Remove="GetTransactionsExBStep6.cs" />
     <Compile Remove="GetTransactionsExBStep7.cs" />
+    <Compile Remove="GetUsers.cs" />
     <Compile Remove="PostTransactionsExAStart.cs" />
     <Compile Remove="PostTransactionsExAStep2.cs" />
     <Compile Remove="PostTransactionsExCStep3.cs" />
@@ -16,6 +17,7 @@
     <Compile Remove="PostTransactionsExCStep6.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="GetUsers.cs" />
     <None Include="GetTransactions.cs" />
     <None Include="GetTransactionsExBStep2.cs" />
     <None Include="GetTransactionsExBStep4.cs" />
