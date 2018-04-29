@@ -41,6 +41,7 @@ namespace BeginningAzureServerlessArchitecture
             try
             {
                 transaction = JsonConvert.DeserializeObject<Transaction>(message);
+                if (transaction == null) throw new Exception("None of the properties on the request message are valid or match.");
             }
             catch(Exception e)
             {
