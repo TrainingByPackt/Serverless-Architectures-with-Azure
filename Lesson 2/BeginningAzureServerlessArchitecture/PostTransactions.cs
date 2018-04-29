@@ -24,9 +24,9 @@ namespace BeginningAzureServerlessArchitecture
             InstrumentationKey = key
         };
 
-        [FunctionName("LessonOne")]
+        [FunctionName("PostTransactions")]
         public static HttpResponseMessage Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "Transactions")]HttpRequestMessage req, 
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "transactions")]HttpRequestMessage req, 
             [DocumentDB("AzureServerlessArchitectureCourse","Transactions", ConnectionStringSetting = "CosmosDBConnectionString")] out Transaction transaction,
             ILogger log)
         {
@@ -53,7 +53,7 @@ namespace BeginningAzureServerlessArchitecture
             }
 
             log.LogInformation("Request successful");
-            return req.CreateResponse(HttpStatusCode.OK, $"You made a transaction of £{transaction.Amount}!");
+            return req.CreateResponse(HttpStatusCode.OK, $"You made a transaction of Â£{transaction.Amount}!");
             
         }
         
