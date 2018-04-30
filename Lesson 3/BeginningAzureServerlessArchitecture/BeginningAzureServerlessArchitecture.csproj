@@ -2,6 +2,18 @@
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="CalculateTransactionInformationExEStep2.cs" />
+    <Compile Remove="CalculateTransactionInformationExEStep3.cs" />
+    <Compile Remove="CalculateTransactionInformationExEStep4.cs" />
+    <Compile Remove="CosmosDBTriggeredFunctionExAStep1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CalculateTransactionInformationExEStep4.cs" />
+    <None Include="CalculateTransactionInformationExEStep3.cs" />
+    <None Include="CalculateTransactionInformationExEStep2.cs" />
+    <None Include="CosmosDBTriggeredFunctionExAStep1.cs" />
+  </ItemGroup>
   <ItemGroup>    
     <PackageReference Include="Microsoft.ApplicationInsights" Version="2.5.1" />    
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DocumentDB" Version="1.1.0" />    

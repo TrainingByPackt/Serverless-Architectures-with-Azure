@@ -14,7 +14,7 @@ namespace BeginningAzureServerlessArchitecture
     public static class GetUsers
     {
         [FunctionName("GetUsers")]
-        public static List<Transaction> Run(
+        public static List<User> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "users")]HttpRequestMessage req,
             [DocumentDB(ConnectionStringSetting = "CosmosDBConnectionString")] DocumentClient client,
             TraceWriter log)

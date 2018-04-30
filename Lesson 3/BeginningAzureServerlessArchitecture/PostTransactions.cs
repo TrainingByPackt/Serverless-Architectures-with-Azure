@@ -61,9 +61,9 @@ namespace BeginningAzureServerlessArchitecture
             var users = new List<User>();
 
             // Now execute
-            foreach (User user in userQuery)
+            foreach (User userItem in userQuery)
             {
-                users.Add(user);
+                users.Add(userItem);
             }
 
             if (users.Count != 1)

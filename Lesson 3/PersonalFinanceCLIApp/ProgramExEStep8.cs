@@ -16,7 +16,6 @@ namespace PersonalFinanceCLIApp
     {
         private static readonly string key = "Your Function Key";
         private static readonly HttpClient httpClient = new HttpClient();
-
         static void Main(string[] args)
         {
             var enterAnotherTransaction = true;
@@ -77,12 +76,11 @@ namespace PersonalFinanceCLIApp
 
         public static TransactionsInformationModel CalculateTransactionsInformation(List<Transaction> transactions)
         {
-            var result = httpClient.PostAsync("CalculateTransactionsInformation address", 
+            var result = httpClient.PostAsync("CalculateTransactionsInformation address",
                 new StringContent(JsonConvert.SerializeObject(transactions))).Result;
             var content = result.Content.ReadAsStringAsync().Result;
             return JsonConvert.DeserializeObject<TransactionsInformationModel>(content);
         }
-
         public static async void BackupTransaction(Transaction transaction)
         {
             // Add your key as a query parameter.
