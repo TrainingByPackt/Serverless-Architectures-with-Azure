@@ -65,12 +65,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BeginningAzureServerlessArchitecture\BeginningAzureServerlessArchitecture.csproj">
-      <Project>{0D084414-C148-4893-B316-6D20C311C1D7}</Project>
-      <Name>BeginningAzureServerlessArchitecture</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
