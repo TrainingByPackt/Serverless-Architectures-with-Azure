@@ -14,6 +14,9 @@ namespace PersonalFinanceCLIApp
 {
     class Program
     {
+        private static readonly string key = "Your Function Key";
+        private static readonly HttpClient httpClient = new HttpClient();
+
         static void Main(string[] args)
         {
             var enterAnotherTransaction = true;
@@ -24,6 +27,9 @@ namespace PersonalFinanceCLIApp
 
                 // Borrowing the Transaction definition from our other project
                 var transaction = new Transaction { Amount = transactionAmount, ExecutionTime = DateTime.Now };
+
+                //Post to our Serverless backend
+                BackupTransaction(transaction);
 
                 // Check if the csv exists, and if not prepopulate it with headers.
                 if (!File.Exists(@"transactions.csv"))
@@ -36,6 +42,7 @@ namespace PersonalFinanceCLIApp
                         csvWriter.Flush();
                     }
                 }
+                    
 
                 // Add the transaction to the list and write it back into the csv
                 using (StreamWriter writer = File.AppendText(@"transactions.csv"))
@@ -56,18 +63,38 @@ namespace PersonalFinanceCLIApp
                 }
 
                 // Calculate some interesting facts about the users transaction history
-                var totalTransactions = transactions.Sum(t => t.Amount);
-                var meanTransactionSize = transactions.Average(t => t.Amount);
-                var largestTransactionAmount = transactions.Max(t => t.Amount);
+                var transactionInformation = CalculateTransactionsInformation(transactions);
 
-                Console.WriteLine($"In total you've logged transactions worth {totalTransactions} with me.\n" +
-                    $"Your average transaction was {meanTransactionSize}.\n" +
-                    $"Your largest transaction ever was {largestTransactionAmount}");
+                Console.WriteLine($"In total you've logged transactions worth {transactionInformation.TotalTransactionsAmount} with me.\n" +
+                    $"Your average transaction was {transactionInformation.MeanTransactionAmount}.\n" +
+                    $"Your largest transaction ever was {transactionInformation.LargestTransactionAmount}");
 
                 Console.WriteLine("Do you want to add another transaction?");
                 enterAnotherTransaction = bool.Parse(Console.ReadLine());
             }
             
+        }
+
+        public static TransactionsInformationModel CalculateTransactionsInformation(List<Transaction> transactions)
+        {
+            var result = httpClient.PostAsync("CalculateTransactionsInformation address", 
+                new StringContent(JsonConvert.SerializeObject(transactions))).Result;
+            var content = result.Content.ReadAsStringAsync().Result;
+            return JsonConvert.DeserializeObject<TransactionsInformationModel>(content);
+        }
+
+        public static async void BackupTransaction(Transaction transaction)
+        {
+            // Add your key as a query parameter.
+            var builder = new UriBuilder("Your Function Address here");
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            query["code"] = key;
+            builder.Query = query.ToString();
+
+            var url = builder.ToString();
+            var stringifiedTransaction = JsonConvert.SerializeObject(transaction);
+            var content = new StringContent(stringifiedTransaction, Encoding.UTF8, "application/json");
+            var result = await httpClient.PostAsync(url, content);
         }
     }
 }

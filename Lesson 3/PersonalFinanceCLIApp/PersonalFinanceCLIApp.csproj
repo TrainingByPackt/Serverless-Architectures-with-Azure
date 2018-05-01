@@ -52,13 +52,13 @@
     <None Include="Models\TransactionExDStep1.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TransactionsInformationModel.cs" />
-    <None Include="ProgramExDStep2.cs" />
-    <None Include="ProgramExDStep1.cs" />
+    <None Include="ProgramSteps\ProgramExDStep2.cs" />
     <Compile Include="Program.cs" />
-    <None Include="ProgramExDStep3.cs" />
-    <None Include="ProgramExDStep4.cs" />
-    <None Include="ProgramExEStep7.cs" />
-    <None Include="ProgramExEStep8.cs" />
+    <None Include="ProgramSteps\ProgramFinal.cs" />
+    <None Include="ProgramSteps\ProgramExDStep3.cs" />
+    <None Include="ProgramSteps\ProgramExDStep4.cs" />
+    <None Include="ProgramSteps\ProgramExEStep7.cs" />
+    <None Include="ProgramSteps\ProgramExEStep8.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

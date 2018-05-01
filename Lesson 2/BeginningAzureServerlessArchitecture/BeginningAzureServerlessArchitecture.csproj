@@ -3,7 +3,6 @@
     <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="GetTransactions.cs" />
     <Compile Remove="GetTransactionsExBStep2.cs" />
     <Compile Remove="GetTransactionsExBStep4.cs" />
     <Compile Remove="GetTransactionsExBStep5.cs" />
@@ -18,7 +17,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GetUsers.cs" />
-    <None Include="GetTransactions.cs" />
     <None Include="GetTransactionsExBStep2.cs" />
     <None Include="GetTransactionsExBStep4.cs" />
     <None Include="GetTransactionsExBStep5.cs" />
